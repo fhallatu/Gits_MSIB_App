@@ -24,14 +24,14 @@ class FormBar extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 10, left: 20, right: 20),
           ),
           CustomTextFormField(
-            controller: TextEditingController(text: 'Rp. ${phone.harga}'),
+            controller: TextEditingController(text: 'Rp. ${phone.harga ?? ''}'),
             labelText: "Harga",
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 10, left: 20, right: 20),
           ),
           CustomTextFormField(
-            controller: TextEditingController(text: phone.warna),
+            controller: TextEditingController(text: phone.warna ?? ''),
             labelText: "Warna",
           ),
         ],

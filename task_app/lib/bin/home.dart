@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:task_app/model/phone.dart';
 import 'package:task_app/widget/container.dart';
 import 'package:task_app/widget/text_field.dart';
 
 import '../widget/appbar.dart';
+import 'Info.dart';
 import 'details.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +22,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: CustomAppBar(
         backgroundcolor: Colors.indigo[700],
+        leading: IconButton(
+          onPressed: () {
+            exit(0);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         title: Stack(
           children: <Widget>[
             CustomContainer(
@@ -40,8 +52,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
+            crossAxisCount: 2, mainAxisSpacing: 10, mainAxisExtent: 250),
+        itemCount: phone.length,
         itemBuilder: (context, index) {
           return CustomContainer(
             height: 250,
@@ -60,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: <Widget>[
                     Card(
+                      borderOnForeground: false,
                       child: Image(
                         image: AssetImage(phone[index].image),
                         height: 125,
@@ -98,19 +111,22 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
-        itemCount: phone.length,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Details(phone[2]),
-            ),
-          );
+          _removeValue(context);
         },
         backgroundColor: Colors.indigo,
         child: Icon(Icons.navigate_next),
+      ),
+    );
+  }
+
+  void _removeValue(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Info(),
       ),
     );
   }

@@ -24,5 +24,4 @@ List<Phone> phone = <Phone>[
       name: 'Samsung Galaxy A72',
       harga: 6399000,
       warna: 'Awasome Black'),
-  Phone(image: 'assets/images/white.png', name: '')
 ];
