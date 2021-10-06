@@ -6,7 +6,7 @@ import 'package:task_app/widget/container.dart';
 import 'package:task_app/widget/text_field.dart';
 
 import '../widget/appbar.dart';
-import 'Info.dart';
+
 import 'details.dart';
 
 class HomePage extends StatefulWidget {
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Details(phone[index]),
+                            builder: (context) => Details(phone: phone[index]),
                           ),
                         );
                       },
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Info(),
+        builder: (context) => Details(),
       ),
     );
   }
